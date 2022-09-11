@@ -9,3 +9,10 @@ services:
     build:
       context: .
       dockerfile: Microservices.Products/Dockerfile
+
+  microservices.sourcing:
+    image: ${DOCKER_REGISTRY-}microservicessourcing
+    build:
+      context: .
+      dockerfile: Microservices.Sourcing/Dockerfile
+

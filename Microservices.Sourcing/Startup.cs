@@ -1,11 +1,10 @@
-using Microservices.Products.Data;
-using Microservices.Products.Data.Interfaces;
-using Microservices.Products.Repositories;
-using Microservices.Products.Repositories.Interfaces;
-using Microservices.Products.Settings;
+using Microservices.Sourcing.Data;
+using Microservices.Sourcing.Data.Interface;
+using Microservices.Sourcing.Repositories;
+using Microservices.Sourcing.Repositories.Interfaces;
+using Microservices.Sourcing.Settings;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -18,7 +17,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Microservices.Products
+namespace Microservices.Sourcing
 {
     public class Startup
     {
@@ -32,28 +31,19 @@ namespace Microservices.Products
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            #region Configuration Dependencies
-            services.Configure<ProductDatabaseSettings>(Configuration.GetSection(nameof(ProductDatabaseSettings)));
-            services.AddSingleton<IProductDatabaseSettings>(sp => sp.GetRequiredService<IOptions<ProductDatabaseSettings>>().Value);
-            #endregion
 
-            #region Project Dependencies
-            services.AddTransient<IProductContext, ProductContext>();
-            services.AddTransient<IProductRepository, ProductRepository>();
-            #endregion
-
-            #region Swagger Dependencies
             services.AddControllers();
-            services.AddSwaggerGen(x =>
-            {
-                x.SwaggerDoc("v1", new OpenApiInfo
-                {
-                    Title = "Microservices.Products",
-                    Version = "v1"
-                });
-            }); 
-            #endregion
+            services.Configure<SourcingDatabaseSettings>(Configuration.GetSection(nameof(SourcingDatabaseSettings)));
+            services.AddSingleton<ISourcingDatabaseSettings>(sp =>sp.GetRequiredService<IOptions<SourcingDatabaseSettings>>().Value);
 
+            services.AddTransient<ISourcingContext, SourcingContext>();
+            services.AddTransient<IAuctionRepository, AuctionRepository>();
+            services.AddTransient<IBidRepository, BidRepository>();
+
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "Microservices.Sourcing", Version = "v1" });
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -63,12 +53,8 @@ namespace Microservices.Products
             {
                 app.UseDeveloperExceptionPage();
                 app.UseSwagger();
-                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Microservices.Products v1"));
+                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Microservices.Sourcing v1"));
             }
-
-            app.UseHttpsRedirection();
-
-
 
             app.UseRouting();
 

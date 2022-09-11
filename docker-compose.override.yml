@@ -10,10 +10,10 @@ services:
     ports:
         - "27017:27017" 
   microservices.products:
+    container_name: microservicesproducts
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
-      - ASPNETCORE_URLS=https://+:443;http://+:80
-      - "ProductDatabaseSettings:ConnectionString=mongodb://localhost:27017"
+      - "ProductDatabaseSettings:ConnectionString=mongodb://microservicesdb:27017"
     depends_on:
         - microservicesdb
     ports:
@@ -21,3 +21,16 @@ services:
     volumes:
       - ${HOME}/ASP.NET/Https:/root/.aspnet/https/
       - ${HOME}/.microsoft/usersecrets/:/root/.microsoft/usersecrets
+  microservices.sourcing:
+    container_name: microservicessourcing
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - "SourcingDatabaseSettings:ConnectionString=mongodb://microservicesdb:27017"
+    depends_on:
+      - microservicesdb
+    volumes:
+      - ${HOME}/.microsoft/usersecrets/:/root/.microsoft/usersecrets
+      - ${HOME}/.aspnet/https:/root/.aspnet/https/
+    ports:
+      - "8001:80"
+
