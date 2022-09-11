@@ -9,6 +9,14 @@ services:
         #- ./data:/data/db
     ports:
         - "27017:27017" 
+
+  rabbitmq:
+    container_name: rabbitmq
+    restart: always
+    ports:
+       - "5672:5672"
+       - "15672:15672"
+
   microservices.products:
     container_name: microservicesproducts
     environment:
@@ -28,6 +36,7 @@ services:
       - "SourcingDatabaseSettings:ConnectionString=mongodb://microservicesdb:27017"
     depends_on:
       - microservicesdb
+      - rabbitmq
     volumes:
       - ${HOME}/.microsoft/usersecrets/:/root/.microsoft/usersecrets
       - ${HOME}/.aspnet/https:/root/.aspnet/https/

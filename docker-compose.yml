@@ -3,6 +3,9 @@ version: '3.4'
 services:
   microservicesdb:
     image: mongo
+  
+  rabbitmq:
+    image: rabbitmq:3-management
 
   microservices.products:
     image: ${DOCKER_REGISTRY-}microservicesproducts
