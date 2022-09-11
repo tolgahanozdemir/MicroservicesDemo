@@ -23,9 +23,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Sourcing", "Sourcing", "{DD
 EndProject
 Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{28497DDC-79BE-46C2-B4A1-1B3ACE0D6FB1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Microservices.Sourcing", "Microservices.Sourcing\Microservices.Sourcing.csproj", "{7EEF0A5B-9683-4ACE-9C5B-E993C6CA36A3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Microservices.Sourcing", "Microservices.Sourcing\Microservices.Sourcing.csproj", "{7EEF0A5B-9683-4ACE-9C5B-E993C6CA36A3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventBusRabbitMQ", "..\EventBusRabbitMQ\EventBusRabbitMQ.csproj", "{E7A9D4F3-341F-46B7-8FEC-522A3A8A6D25}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EventBusRabbitMQ", "EventBusRabbitMQ\EventBusRabbitMQ.csproj", "{8625DF2B-ADAC-4F0A-A420-8AD3A00ED1FD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,10 +45,10 @@ Global
 		{7EEF0A5B-9683-4ACE-9C5B-E993C6CA36A3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7EEF0A5B-9683-4ACE-9C5B-E993C6CA36A3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7EEF0A5B-9683-4ACE-9C5B-E993C6CA36A3}.Release|Any CPU.Build.0 = Release|Any CPU
-		{E7A9D4F3-341F-46B7-8FEC-522A3A8A6D25}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E7A9D4F3-341F-46B7-8FEC-522A3A8A6D25}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E7A9D4F3-341F-46B7-8FEC-522A3A8A6D25}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E7A9D4F3-341F-46B7-8FEC-522A3A8A6D25}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8625DF2B-ADAC-4F0A-A420-8AD3A00ED1FD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8625DF2B-ADAC-4F0A-A420-8AD3A00ED1FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8625DF2B-ADAC-4F0A-A420-8AD3A00ED1FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8625DF2B-ADAC-4F0A-A420-8AD3A00ED1FD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -63,7 +63,7 @@ Global
 		{F71EDF7D-3338-4FA3-B98A-E1D7FD2E2886} = {35F0C0B2-DCF0-4DE9-9BB8-7EF640855647}
 		{DD1A1470-3451-46B8-A6E6-D96D58A9CA4F} = {35F0C0B2-DCF0-4DE9-9BB8-7EF640855647}
 		{7EEF0A5B-9683-4ACE-9C5B-E993C6CA36A3} = {DD1A1470-3451-46B8-A6E6-D96D58A9CA4F}
-		{E7A9D4F3-341F-46B7-8FEC-522A3A8A6D25} = {33A3B2D2-9C6C-47FF-A916-CB6277782707}
+		{8625DF2B-ADAC-4F0A-A420-8AD3A00ED1FD} = {33A3B2D2-9C6C-47FF-A916-CB6277782707}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {C3FE056E-6130-40B8-BB01-6DB8A3F7EE90}
